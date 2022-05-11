@@ -30,8 +30,11 @@ public class JogadorController implements Serializable {
         return escolha;
     }
     
+<<<<<<< HEAD
     public int getEscolhaComputador(){
         return 0;
     }
     
+=======
+>>>>>>> parent of 1b83cb8 (change Payara Server version)
 }
