@@ -7,6 +7,7 @@ package beans;
 
 import dao.GenericDAO;
 import java.io.Serializable;
+import java.util.Random;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import model.Jogador;
@@ -19,22 +20,52 @@ import model.Jogador;
 @SessionScoped
 public class JogadorController implements Serializable {
     
-    private int escolha;
+    private String nome, escolhaJogador, resultado;
     
     private final static GenericDAO<Jogador> jogadorDao = new GenericDAO<>();
 
     public JogadorController() {
     }
 
-    public int getEscolha() {
-        return escolha;
+    public String getEscolhaJogador() {
+        return escolhaJogador;
+    }
+
+    public void setEscolhaJogador(String escolhaJogador) {
+        this.escolhaJogador = escolhaJogador;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(String resultado) {
+        this.resultado = resultado;
     }
     
-<<<<<<< HEAD
-    public int getEscolhaComputador(){
-        return 0;
+    public String gerarResultado(){
+        
+        int escolhaComputador = new Random().nextInt(3) + 1; // Escolha do Computador
+        switch((escolhaComputador - (Integer.parseInt(escolhaJogador) % 3))){
+            case 0:
+            case 3:
+                this.resultado = "Empate";
+                break; // Empate
+            case 1:
+                this.resultado = "Computador venceu";
+                break; // Computador Venceu
+            default:
+                this.resultado = "Voce venceu";
+                break; // Voce Venceu
+        }
+        return "resultado.xhtml";
     }
-    
-=======
->>>>>>> parent of 1b83cb8 (change Payara Server version)
 }
