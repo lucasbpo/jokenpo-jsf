@@ -21,6 +21,7 @@ import model.Jogador;
 public class JogadorController implements Serializable {
     
     private String nome, escolhaJogador, resultado;
+    private int escolhaComputador;
     
     private final static GenericDAO<Jogador> jogadorDao = new GenericDAO<>();
 
@@ -33,6 +34,14 @@ public class JogadorController implements Serializable {
 
     public void setEscolhaJogador(String escolhaJogador) {
         this.escolhaJogador = escolhaJogador;
+    }
+
+    public int getEscolhaComputador() {
+        return escolhaComputador;
+    }
+
+    public void setEscolhaComputador(int escolhaComputador) {
+        this.escolhaComputador = escolhaComputador;
     }
 
     public String getNome() {
@@ -52,8 +61,7 @@ public class JogadorController implements Serializable {
     }
     
     public String gerarResultado(){
-        
-        int escolhaComputador = new Random().nextInt(3) + 1; // Escolha do Computador
+        escolhaComputador = new Random().nextInt(3) + 1; // Escolha do Computador
         switch((escolhaComputador - (Integer.parseInt(escolhaJogador) % 3))){
             case 0:
             case 3:

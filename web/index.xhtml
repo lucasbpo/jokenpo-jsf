@@ -7,22 +7,41 @@
     <h:head>
         <title>Jokenpo</title>
     </h:head>
-    <h:body>
+    <h:body style="text-align: center;">
         <h1>Pedra - Papel - Tesoura</h1>
         <h:form>
             <h2>Escolha sua jogada</h2>
-            <p:panelGrid columns="2">
-                <h:selectOneRadio value="#{jogadorController.escolhaJogador}" required="true">
-                <f:selectItem itemLabel="Pedra" itemValue="1" />
-                <f:selectItem itemLabel="Papel" itemValue="2" />
-                <f:selectItem itemLabel="Tesoura" itemValue="3" />
-                
-                <p:outputLabel value="Nome: "/>
+            
+            <p:selectOneRadio id="customRadio" value="#{jogadorController.escolhaJogador}" layout="custom" required="true">
+                    <f:selectItem itemLabel="Pedra" itemValue="1" />
+                    <f:selectItem itemLabel="Papel" itemValue="2" />
+                    <f:selectItem itemLabel="Tesoura" itemValue="3" />
+                </p:selectOneRadio>
+            
+            <h:panelGrid columns="3" style="margin-left: auto; margin-right: auto">
+                <h:panelGroup>
+                    <p:radioButton id="pedraId" for="customRadio" itemIndex="0"/>
+                    <p:outputLabel for="pedraId">
+                        <p:graphicImage value="/imgs/pedra_jogador.png"/>
+                    </p:outputLabel>
+                </h:panelGroup>
+                <h:panelGroup>
+                    <p:radioButton id="papelId" for="customRadio" itemIndex="1"/>
+                    <p:outputLabel for="papelId">
+                        <p:graphicImage value="/imgs/papel_jogador.png"/>
+                    </p:outputLabel>
+                </h:panelGroup>
+                <h:panelGroup>
+                    <p:radioButton id="tesouraId" for="customRadio" itemIndex="2"/>
+                    <p:outputLabel for="tesouraId">
+                        <p:graphicImage value="/imgs/tesoura_jogador.png"/>
+                    </p:outputLabel>
+                </h:panelGroup>
+            </h:panelGrid>
+            
+            <p:outputLabel value="Nome: "/>
                 <p:inputText value="#{jogadorController.nome}" required="true"/>
-            </h:selectOneRadio>
-            </p:panelGrid>
-            
-            
+                
             <p:commandButton value="Jogar" ajax="false"
                              action="#{jogadorController.gerarResultado}"/>
         </h:form>
