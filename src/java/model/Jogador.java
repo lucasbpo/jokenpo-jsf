@@ -13,4 +13,27 @@ public class Jogador {
     private int partidas;
     private int vitorias;
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getPartidas() {
+        return partidas;
+    }
+
+    public void setPartidas(int partidas) {
+        this.partidas = partidas;
+    }
+
+    public int getVitorias() {
+        return vitorias;
+    }
+
+    public void setVitorias(int vitorias) {
+        this.vitorias = vitorias;
+    }  
 }

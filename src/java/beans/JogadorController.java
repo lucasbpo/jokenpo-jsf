@@ -30,4 +30,5 @@ public class JogadorController implements Serializable {
         return escolha;
     }
     
+    
 }
