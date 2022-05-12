@@ -22,24 +22,34 @@ public class Jogador implements Serializable {
     public Jogador() {
     }
 
-    public Jogador(String nome) {
+    public Jogador(String nome, int partidas, int vitorias, int derrotas, int empates) {
         this.nome = nome;
-        partidas = 0;
-        vitorias = 0;
-        derrotas = 0;
-        empates = 0;
-        percentualVitorias = 0;
+        this.partidas = partidas;
+        this.vitorias = vitorias;
+        this.derrotas = derrotas;
+        this.empates = empates;
+        this.percentualVitorias = percentualVitorias;
     }
     
-
+    public Jogador(String nome, int partidas, int vitorias, double percentualVitorias) {
+        this.nome = nome;
+        this.partidas = partidas;
+        this.vitorias = vitorias;
+        this.percentualVitorias = percentualVitorias;
+    }
+    
     public String getNome() {
         return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public int getPartidas() {
         return partidas;
     }
-
+    
     public int getVitorias() {
         return vitorias;
     }

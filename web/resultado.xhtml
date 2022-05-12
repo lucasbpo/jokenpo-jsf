@@ -11,9 +11,9 @@
         <h1>Pedra - Papel - Tesoura</h1>
         <h2>Resultado</h2>
         
-        <h:panelGrid columns="3" cellspacing="8" cellpadding="12" style="margin-left: auto; margin-right: auto">
+        <h:panelGrid columns="3" cellspacing="8" cellpadding="12" style="margin: 0 auto;">
             <h:panelGroup>
-                <h:panelGrid columns="1" columnClasses="alignmentLeft" style="margin-left: auto; margin-right: auto">
+                <h:panelGrid columns="1" columnClasses="alignmentLeft" style="margin: 0 auto;">
                     <h:outputLabel value="Sua jogada"/>
                 </h:panelGrid>
                 <p:graphicImage value="/imgs/pedra_jogador.png" rendered="#{jogadorController.escolhaJogador == 1}"/>
@@ -24,7 +24,7 @@
                 <p style="font-size: 64px">X</p>
             </h:panelGroup>
             <h:panelGroup>
-                <h:panelGrid columns="1" columnClasses="alignmentRight" style="margin-left: auto; margin-right: auto">
+                <h:panelGrid columns="1" columnClasses="alignmentRight" style="margin: 0 auto;">
                     <h:outputLabel value="Computador"/>
                 </h:panelGrid>
                 <p:graphicImage value="/imgs/pedra_jogador.png" rendered="#{jogadorController.escolhaComputador == 1}"/>
@@ -33,6 +33,25 @@
             </h:panelGroup>
         </h:panelGrid>
       
-      <h2>${jogadorController.resultado}</h2>
+        <h2>${jogadorController.resultado}</h2>
+        
+        <h:panelGrid columns="4" style="font-size: 24px; margin: 0 auto;">
+            <h:panelGroup>
+                <h:outputLabel for="partidas" value="Partidas: " style="font-weight: bold;"/>
+                <h:outputText id="partidas" value="#{jogadorController.jogador.partidas}    " style="color: blue; font-weight: bold;"/>
+            </h:panelGroup>
+            <h:panelGroup>
+                <h:outputLabel for="vitorias" value="Vitorias: " style="font-weight: bold;"/>
+                <h:outputText id="vitorias" value="#{jogadorController.jogador.vitorias}    " style="color: green; font-weight: bold;"/>
+            </h:panelGroup>
+            <h:panelGroup>
+                <h:outputLabel for="derrotas" value="Derrotas: " style="font-weight: bold;"/>
+                <h:outputText id="derrotas" value="#{jogadorController.jogador.derrotas}    " style="color: red; font-weight: bold;"/>
+            </h:panelGroup>
+            <h:panelGroup>
+                <h:outputLabel for="empates" value="Empates: " style="font-weight: bold;"/>
+                <h:outputText id="empates" value="#{jogadorController.jogador.empates}  " style="color: yellow; font-weight: bold;"/>
+            </h:panelGroup>
+        </h:panelGrid>
     </h:body>
 </html>

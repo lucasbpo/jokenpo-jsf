@@ -18,7 +18,7 @@
                     <f:selectItem itemLabel="Tesoura" itemValue="3" />
                 </p:selectOneRadio>
             
-            <h:panelGrid columns="3" style="margin-left: auto; margin-right: auto">
+            <h:panelGrid columns="3" style="margin: 0 auto;">
                 <h:panelGroup>
                     <p:radioButton id="pedraId" for="customRadio" itemIndex="0"/>
                     <p:outputLabel for="pedraId">
@@ -40,7 +40,7 @@
             </h:panelGrid>
             
             <p:outputLabel value="Nome: "/>
-                <p:inputText value="#{jogadorController.nome}" required="true"/>
+            <p:inputText value="#{jogadorController.jogador.nome}" required="true"/>
                 
             <p:commandButton value="Jogar" ajax="false"
                              action="#{jogadorController.gerarResultado}"/>
